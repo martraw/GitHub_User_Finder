@@ -1,6 +1,9 @@
 //Instantieate GitHub obiect
 const gh = new GitHub;
 
+//Instantieate UI obiect
+const ui = new UI;
+
 //Search user name input
 const searchUser = document.querySelector('#username');
 
@@ -10,8 +13,16 @@ searchUser.addEventListener('keyup', (e) => {
 
    if (userName !== '') {
      gh.getUser(userName)
-      .then(user => console.log(user))
+      .then(user => {
+        if (user.profile.message === 'Not Found') {
+          //Show alert
+        } else {
+          // Show user profile
+          ui.showUser(user.profile)
+        }
+      })
    } else {
-     
+     //Clear user profile
+
    }
 })
