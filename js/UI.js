@@ -53,6 +53,35 @@ class UI {
 
   //Check if data has value. If not returns long dash sign (unicode: U+2014)
   hasValue(data) {
-    return !data?`\u{2014}`:data
+    return !data?`\u{2014}`:data;
+  }
+
+  //Clear profile
+  clearProfile() {
+    this.profile.innerHTML = '';
+  }
+
+  //Show alert message
+  showAlert(message, className) {
+    this.clearAlert();
+    const messageContainer = document.querySelector('#message');
+    const div = document.createElement('div');
+    div.className = className;
+    div.appendChild(document.createTextNode(message));
+
+    messageContainer.appendChild(div);
+
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  //Clear alert
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+
+    if (currentAlert) {
+      currentAlert.remove();
+    }
   }
 }
