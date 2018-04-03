@@ -16,3 +16,30 @@
   margin-bottom: 5px;
   border-radius: 5px;
 }
+
+.repo  {
+  margin: 10px 0;
+  border: 1px solid #E1E1E1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  
+}
+
+.repo .row {
+  display: flex;
+  align-items: center;
+
+}
+
+.repo .badge {
+  margin-bottom: 0;
+  background: rgb(189, 255, 102);
+}
+
+.repo-link {
+  text-decoration: none;
+}
+
+.bt-center {
+  margin: 0 auto
+}
