@@ -10,7 +10,7 @@ class UI {
       <div class="row">
         <div class="four columns">
           <img class="u-max-full-width" src="${user.avatar_url}">
-          <a href="${user.html_url}" class="button button-primary" target="_blank">VISIT PROFILE</a>
+          <a href="${user.html_url}" class="button button-primary u-full-width " target="_blank">VISIT PROFILE</a>
         </div>
         <div class="eight columns">
           <h4>${user.login}</h4>
@@ -49,6 +49,31 @@ class UI {
     `;
     
     this.profile.innerHTML = output;
+  }
+
+  //Show user repos
+  showRepos(repos) {
+    let output = '';
+
+    repos.forEach((repo) => {
+      output += `
+        <div class='repo'>
+          <div class='row'>
+            <div class='one-half column'>
+              <a href='${repo.html_url}' class='repo-link' target='_blank'>${repo.name}</a>
+            </div>
+
+            <div class='one-half column'>
+              <span class="badge">Stars: ${repo.stargazers_count}</span>
+              <span class="badge">Watchers: ${repo.watchers_count}</span>
+              <span class="badge">Forks: ${repo.forks_count}</span>
+            </div>
+          </div>
+        </div>
+      `
+    });
+
+    document.querySelector('#repositories').innerHTML = output;
   }
 
   //Check if data has value. If not returns long dash sign (unicode: U+2014)
